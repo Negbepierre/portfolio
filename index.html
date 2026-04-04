@@ -670,20 +670,189 @@
       transform: translateY(0);
     }
 
-    /* ── RESPONSIVE ── */
+    .project-card-full { grid-column: span 2; }
+
+    /* ── TABLET ── */
     @media (max-width: 900px) {
       nav { padding: 16px 24px; }
       .nav-links { gap: 20px; }
-      section { padding: 70px 24px; }
-      .hero { padding: 100px 24px 60px; }
+      section { padding: 64px 24px; }
+      .hero { padding: 100px 24px 60px; min-height: auto; }
       .hero::before { display: none; }
-      .hero-stats { position: static; flex-direction: row; gap: 40px; margin-top: 48px; }
+      .hero-stats { position: static; flex-direction: row; gap: 32px; margin-top: 40px; }
       .stat-item { text-align: left; }
-      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .projects-grid { grid-template-columns: 1fr; }
+      .project-card-full { grid-column: span 1; }
       .expertise-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      nav {
+        padding: 14px 20px;
+      }
+      .nav-links {
+        gap: 14px;
+      }
+      .nav-links a {
+        font-size: 11px;
+        letter-spacing: 0.05em;
+      }
+      section {
+        padding: 52px 20px;
+      }
+      #contact {
+        padding: 52px 20px;
+      }
+      .section-header {
+        margin-bottom: 36px;
+        gap: 12px;
+      }
+      .section-title {
+        font-size: 28px;
+      }
+
+      /* Hero */
+      .hero {
+        padding: 88px 20px 48px;
+        min-height: auto;
+      }
+      .hero-tag {
+        font-size: 10px;
+        margin-bottom: 20px;
+      }
+      .hero-name {
+        font-size: 52px;
+        margin-bottom: 8px;
+      }
+      .hero-title {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+      .hero-bio {
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 32px;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .btn-primary {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+      }
+      .hero-stats {
+        flex-direction: row;
+        gap: 24px;
+        margin-top: 36px;
+        flex-wrap: wrap;
+      }
+      .stat-number {
+        font-size: 32px;
+      }
+      .stat-label {
+        font-size: 10px;
+      }
+
+      /* About */
+      .about-text p {
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 16px;
+      }
+      .skill-group {
+        gap: 12px;
+      }
+      .skill-group h4 {
+        font-size: 10px;
+        margin-bottom: 10px;
+      }
+      .skill-tag {
+        font-size: 11px;
+        padding: 5px 11px;
+      }
+
+      /* Projects */
+      .project-card {
+        padding: 28px 24px;
+        gap: 16px;
+      }
+      .project-title {
+        font-size: 22px;
+      }
+      .project-desc {
+        font-size: 13px;
+        line-height: 1.65;
+      }
+      .stack-item {
+        font-size: 9px;
+        padding: 3px 8px;
+      }
+      .project-link {
+        font-size: 12px;
+      }
+
+      /* Expertise */
+      .expertise-card {
+        padding: 28px 24px;
+      }
+      .expertise-title {
+        font-size: 20px;
+      }
+      .expertise-desc {
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      /* Contact */
+      .contact-intro {
+        font-size: 22px;
+        margin-bottom: 16px;
+      }
+      .contact-text {
+        font-size: 13px;
+        margin-bottom: 24px;
+      }
+      .contact-email-link {
+        font-size: 13px;
+      }
+      .form-group label {
+        font-size: 10px;
+      }
+      .form-group input,
+      .form-group textarea {
+        font-size: 14px;
+        padding: 12px 14px;
+      }
+      .form-submit {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+      }
+
+      /* Footer */
+      footer {
+        padding: 24px 20px;
+        gap: 12px;
+      }
+      .footer-name {
+        font-size: 14px;
+      }
+      .footer-copy {
+        font-size: 11px;
+      }
+      .footer-links {
+        gap: 16px;
+      }
+      .footer-links a {
+        font-size: 11px;
+      }
     }
   </style>
 </head>
@@ -703,7 +872,7 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <div class="hero-tag">Solutions Architect — Cloud &amp; Security</div>
+      <div class="hero-tag">Solutions Architect, Cloud &amp; Security</div>
       <h1 class="hero-name">Pierre<br /><em>Inegbenose</em></h1>
       <p class="hero-title">Cloud · Security · AI Engineering</p>
       <p class="hero-bio">
@@ -932,19 +1101,19 @@
       </div>
 
       <!-- Project 5 -->
-      <div class="project-card reveal" style="grid-column: span 2;">
+      <div class="project-card reveal project-card-full">
         <div class="project-header">
           <span class="project-number">05</span>
           <span class="project-badge">Security Operations</span>
         </div>
-        <h3 class="project-title">PierreGuard Ops — AI Security Operations Centre</h3>
+        <h3 class="project-title">PierreGuard Ops: AI Security Operations Centre</h3>
         <p class="project-desc">
           A real-time Security Operations Centre that monitors a live AWS environment.
           It pulls threat findings from GuardDuty, API activity from CloudTrail, and
-          network details from a CloudFormation-deployed VPC. Claude via AWS Bedrock
-          analyses all of it and produces a clear threat report. The VPC uses both a
-          Security Group and a Network ACL to block SSH, RDP, and Telnet at the
-          subnet level.
+          network details from a VPC deployed using CloudFormation. Claude via AWS
+          Bedrock analyses all of it and produces a clear threat report. The VPC uses
+          both a Security Group and a Network ACL to block SSH, RDP, and Telnet at
+          the subnet level.
         </p>
         <div class="project-stack">
           <span class="stack-item">GuardDuty</span>
