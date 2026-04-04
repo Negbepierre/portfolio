@@ -672,6 +672,66 @@
 
     .project-card-full { grid-column: span 2; }
 
+
+    /* ── CREDENTIALS ── */
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+    }
+
+    .credentials-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .credentials-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .credential-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .credential-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    .credential-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 3px;
+    }
+
+    .credential-sub {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--dark-grey);
+    }
+
+    @media (max-width: 600px) {
+      .credentials-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      #credentials {
+        padding: 52px 20px;
+      }
+    }
+
     /* ── TABLET ── */
     @media (max-width: 900px) {
       nav { padding: 16px 24px; }
@@ -865,6 +925,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#credentials">Credentials</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -1191,10 +1252,84 @@
     </div>
   </section>
 
+
+  <!-- CREDENTIALS -->
+  <section id="credentials" style="background: var(--white); padding: 64px 60px;">
+    <div class="section-header reveal">
+      <span class="section-number">04</span>
+      <h2 class="section-title">Credentials</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="credentials-grid reveal">
+
+      <div class="credentials-col">
+        <p class="credentials-label">Certifications</p>
+        <div class="credentials-list">
+          <div class="credential-item">
+            <span class="credential-dot" style="background:#FF9900"></span>
+            <div>
+              <p class="credential-name">AWS Certified Solutions Architect</p>
+              <p class="credential-sub">Amazon Web Services · Associate · Dec 2025</p>
+            </div>
+          </div>
+          <div class="credential-item">
+            <span class="credential-dot" style="background:#FF9900"></span>
+            <div>
+              <p class="credential-name">AWS Certified Cloud Practitioner</p>
+              <p class="credential-sub">Amazon Web Services · Jun 2024</p>
+            </div>
+          </div>
+          <div class="credential-item">
+            <span class="credential-dot" style="background:#FF9900"></span>
+            <div>
+              <p class="credential-name">AWS AI Practitioner</p>
+              <p class="credential-sub">Amazon Web Services · In view</p>
+            </div>
+          </div>
+          <div class="credential-item">
+            <span class="credential-dot" style="background:#417DA5"></span>
+            <div>
+              <p class="credential-name">Project Management Professional (PMP)</p>
+              <p class="credential-sub">Project Management Institute · Sep 2025</p>
+            </div>
+          </div>
+          <div class="credential-item">
+            <span class="credential-dot" style="background:#4285F4"></span>
+            <div>
+              <p class="credential-name">Google Cloud Computing Foundations</p>
+              <p class="credential-sub">Google · Feb 2023</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="credentials-col">
+        <p class="credentials-label">Education</p>
+        <div class="credentials-list">
+          <div class="credential-item">
+            <span class="credential-dot" style="background: var(--gold)"></span>
+            <div>
+              <p class="credential-name">MSc Information Technology</p>
+              <p class="credential-sub">Birkbeck, University of London · 2022 to 2023</p>
+            </div>
+          </div>
+          <div class="credential-item">
+            <span class="credential-dot" style="background: var(--gold)"></span>
+            <div>
+              <p class="credential-name">BEng Electrical and Electronics Engineering</p>
+              <p class="credential-sub">Covenant University · 2014 to 2019</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-header reveal">
-      <span class="section-number">04</span>
+      <span class="section-number">05</span>
       <h2 class="section-title">Contact</h2>
       <div class="section-line" style="background: rgba(255,255,255,0.1);"></div>
     </div>
