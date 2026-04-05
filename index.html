@@ -995,7 +995,7 @@
     </div>
     <div class="hero-stats">
       <div class="stat-item">
-        <div class="stat-number">5</div>
+        <div class="stat-number">6</div>
         <div class="stat-label">Live Projects</div>
       </div>
       <div class="stat-item">
@@ -1254,6 +1254,43 @@
             Live Demo →
           </a>
           <a href="https://github.com/Negbepierre/pierreguard-ops" target="_blank" class="project-link github">
+            GitHub
+          </a>
+        </div>
+
+      <!-- Project 6 -->
+      <div class="project-card reveal project-card-full">
+        <div class="project-header">
+          <span class="project-number">06</span>
+          <span class="project-badge">AI Security</span>
+        </div>
+        <h3 class="project-title">PierreGuard Watch: AI Agent Threat Monitor</h3>
+        <div class="project-image-wrap">
+          <img src="assets/project6-watch.png" alt="PierreGuard Watch" class="project-image" style="height:240px;" />
+        </div>
+        <p class="project-desc">
+          A security monitor built to detect AI agents operating inside AWS environments.
+          It reads live CloudTrail events and GuardDuty findings, applies a five-skill
+          reasoning framework defined in SKILLS.md, and produces a classified threat report.
+          HIGH findings trigger a Slack alert. CRITICAL findings trigger Slack and SES email.
+          The principal ID of the monitoring service account is used as a known-good identifier
+          so the agent cannot flag its own activity.
+        </p>
+        <div class="project-stack">
+          <span class="stack-item">CloudTrail</span>
+          <span class="stack-item">GuardDuty</span>
+          <span class="stack-item">SKILLS.md</span>
+          <span class="stack-item">AWS Bedrock</span>
+          <span class="stack-item">AWS SES</span>
+          <span class="stack-item">Slack</span>
+          <span class="stack-item">Python</span>
+          <span class="stack-item">React</span>
+        </div>
+        <div class="project-links">
+          <a href="https://pierreguard-watch.netlify.app" target="_blank" class="project-link">
+            Live Demo →
+          </a>
+          <a href="https://github.com/Negbepierre/pierreguard-watch" target="_blank" class="project-link github">
             GitHub
           </a>
         </div>
