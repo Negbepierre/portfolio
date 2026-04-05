@@ -83,27 +83,24 @@
     .hero {
       min-height: 100vh;
       display: flex;
-      align-items: center;
-      padding: 120px 60px 80px;
+      align-items: flex-start;
+      flex-direction: column;
+      justify-content: center;
+      padding: 140px 60px 80px;
       position: relative;
       overflow: hidden;
+      background: var(--white);
     }
 
     .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 45%;
-      height: 100%;
-      background: var(--cream);
-      z-index: 0;
+      display: none;
     }
 
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 680px;
+      width: 100%;
+      max-width: 100%;
     }
 
     .hero-tag {
@@ -160,8 +157,8 @@
       font-weight: 300;
       line-height: 1.8;
       color: var(--dark-grey);
-      max-width: 520px;
-      margin-bottom: 48px;
+      max-width: 720px;
+      margin-bottom: 0;
       opacity: 0;
       animation: fadeUp 0.8s ease 0.4s forwards;
     }
@@ -169,7 +166,8 @@
     .hero-actions {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 16px;
+      margin-top: 40px;
       opacity: 0;
       animation: fadeUp 0.8s ease 0.5s forwards;
     }
@@ -177,6 +175,7 @@
     .btn-primary {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
       padding: 14px 32px;
       background: var(--black);
@@ -187,6 +186,7 @@
       text-decoration: none;
       border: 1px solid var(--black);
       transition: all 0.25s;
+      min-width: 180px;
     }
 
     .btn-primary:hover {
@@ -211,26 +211,37 @@
     }
 
     .hero-stats {
-      position: absolute;
-      right: 60px;
-      bottom: 80px;
+      position: relative;
       z-index: 1;
       display: flex;
-      flex-direction: column;
-      gap: 32px;
+      flex-direction: row;
+      gap: 64px;
+      width: 100%;
+      margin-top: 48px;
       opacity: 0;
       animation: fadeUp 0.8s ease 0.6s forwards;
     }
 
     .stat-item {
-      text-align: right;
+      text-align: left;
+      padding: 0;
+      flex: none;
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+      padding-left: 0;
+    }
+
+    .stat-item:first-child {
+      padding-left: 0;
     }
 
     .stat-number {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 42px;
+      font-size: 48px;
       font-weight: 300;
-      color: var(--black);
+      color: var(--gold);
       line-height: 1;
     }
 
@@ -240,7 +251,7 @@
       color: var(--dark-grey);
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-top: 4px;
+      margin-top: 6px;
     }
 
     /* ── SECTIONS ── */
@@ -673,6 +684,27 @@
     .project-card-full { grid-column: span 2; }
 
 
+
+    /* ── PROJECT IMAGES ── */
+    .project-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      border-bottom: 1px solid var(--light-grey);
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.02);
+    }
+
+    .project-image-wrap {
+      overflow: hidden;
+      margin: -48px -48px 24px -48px;
+    }
+
     /* ── CREDENTIALS ── */
     .credentials-grid {
       display: grid;
@@ -795,29 +827,40 @@
       .hero-bio {
         font-size: 14px;
         line-height: 1.7;
-        margin-bottom: 32px;
-      }
-      .hero-actions {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-      }
-      .btn-primary {
-        width: 100%;
-        justify-content: center;
-        padding: 14px 24px;
+        margin-bottom: 0;
       }
       .hero-stats {
         flex-direction: row;
-        gap: 24px;
-        margin-top: 36px;
-        flex-wrap: wrap;
+        gap: 32px;
+        margin-top: 28px;
+        flex-wrap: nowrap;
+      }
+      .stat-item {
+        padding: 0;
+        flex: none;
+      }
+      .stat-item:last-child {
+        padding-left: 0;
+      }
+      .stat-item:first-child {
+        padding-left: 0;
       }
       .stat-number {
         font-size: 32px;
       }
       .stat-label {
-        font-size: 10px;
+        font-size: 9px;
+      }
+      .hero-actions {
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        margin-top: 28px;
+      }
+      .btn-primary {
+        min-width: 0;
+        padding: 12px 20px;
+        font-size: 12px;
       }
 
       /* About */
@@ -842,6 +885,12 @@
       .project-card {
         padding: 28px 24px;
         gap: 16px;
+      }
+      .project-image-wrap {
+        margin: -28px -24px 16px -24px;
+      }
+      .project-image {
+        height: 160px;
       }
       .project-title {
         font-size: 22px;
@@ -941,15 +990,6 @@
         My focus is AWS architecture, IAM governance, and security tooling that
         solves real problems and ships as working products.
       </p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn-primary">
-          View Projects
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-        <a href="#contact" class="btn-secondary">Get in touch</a>
-      </div>
     </div>
     <div class="hero-stats">
       <div class="stat-item">
@@ -965,12 +1005,20 @@
         <div class="stat-label">AI Frameworks</div>
       </div>
     </div>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">
+        View Projects
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <a href="#contact" class="btn-secondary">Get in touch</a>
+    </div>
   </section>
 
   <!-- ABOUT -->
   <section id="about">
     <div class="section-header reveal">
-      <span class="section-number">01</span>
       <h2 class="section-title">About</h2>
       <div class="section-line"></div>
     </div>
@@ -1038,7 +1086,6 @@
   <!-- PROJECTS -->
   <section id="projects">
     <div class="section-header reveal">
-      <span class="section-number">02</span>
       <h2 class="section-title">Projects</h2>
       <div class="section-line"></div>
     </div>
@@ -1046,6 +1093,9 @@
 
       <!-- Project 1 -->
       <div class="project-card reveal">
+        <div class="project-image-wrap">
+          <img src="assets/project1-workflow.png" alt="AI Workflow Auditor" class="project-image" />
+        </div>
         <div class="project-header">
           <span class="project-number">01</span>
           <span class="project-badge">Automation</span>
@@ -1074,6 +1124,9 @@
 
       <!-- Project 2 -->
       <div class="project-card reveal">
+        <div class="project-image-wrap">
+          <img src="assets/project2-hr.png" alt="AI HR Assistant" class="project-image" />
+        </div>
         <div class="project-header">
           <span class="project-number">02</span>
           <span class="project-badge">HR Tech</span>
@@ -1103,6 +1156,9 @@
 
       <!-- Project 3 -->
       <div class="project-card reveal">
+        <div class="project-image-wrap">
+          <img src="assets/project3-paralegal.png" alt="AI Paralegal" class="project-image" />
+        </div>
         <div class="project-header">
           <span class="project-number">03</span>
           <span class="project-badge">Legal Tech</span>
@@ -1133,6 +1189,9 @@
 
       <!-- Project 4 -->
       <div class="project-card reveal">
+        <div class="project-image-wrap">
+          <img src="assets/project4-scan.png" alt="PierreGuard Scan" class="project-image" />
+        </div>
         <div class="project-header">
           <span class="project-number">04</span>
           <span class="project-badge">IAM Security</span>
@@ -1163,6 +1222,9 @@
 
       <!-- Project 5 -->
       <div class="project-card reveal project-card-full">
+        <div class="project-image-wrap">
+          <img src="assets/project5-ops-vpc.png" alt="PierreGuard Ops" class="project-image" style="height:240px;" />
+        </div>
         <div class="project-header">
           <span class="project-number">05</span>
           <span class="project-badge">Security Operations</span>
@@ -1201,7 +1263,6 @@
   <!-- EXPERTISE -->
   <section id="expertise">
     <div class="section-header reveal">
-      <span class="section-number">03</span>
       <h2 class="section-title">Expertise</h2>
       <div class="section-line"></div>
     </div>
@@ -1256,7 +1317,6 @@
   <!-- CREDENTIALS -->
   <section id="credentials" style="background: var(--white); padding: 64px 60px;">
     <div class="section-header reveal">
-      <span class="section-number">04</span>
       <h2 class="section-title">Credentials</h2>
       <div class="section-line"></div>
     </div>
@@ -1329,7 +1389,6 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-header reveal">
-      <span class="section-number">05</span>
       <h2 class="section-title">Contact</h2>
       <div class="section-line" style="background: rgba(255,255,255,0.1);"></div>
     </div>
